@@ -1,0 +1,326 @@
+/* ══════════════════════════════════════════════════
+   CrowdFlow AI  ·  Home / Landing Styles
+   ══════════════════════════════════════════════════ */
+
+/* ── Landing page wrapper ──────────────────────── */
+.role-selection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Ambient orbs ───────────────────────────────── */
+.bg-orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: orbFloat 12s ease-in-out infinite;
+}
+.bg-orb-1 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(99,102,241,0.18), transparent 70%);
+  top: -10%; left: -10%;
+  animation-duration: 14s;
+}
+.bg-orb-2 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(139,92,246,0.14), transparent 70%);
+  bottom: -5%; right: -5%;
+  animation-duration: 11s;
+  animation-delay: -4s;
+}
+.bg-orb-3 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(6,182,212,0.1), transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation-duration: 16s;
+  animation-delay: -8s;
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(20px, -30px) scale(1.05); }
+  66%       { transform: translate(-15px, 20px) scale(0.95); }
+}
+
+/* ── Logo container ─────────────────────────────── */
+.logo-container {
+  width: 72px; height: 72px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(139,92,246,0.15) 100%);
+  border: 1px solid rgba(99,102,241,0.25);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 0 40px rgba(99,102,241,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  animation: logoGlow 3s ease-in-out infinite;
+}
+@keyframes logoGlow {
+  0%, 100% { box-shadow: 0 0 30px rgba(99,102,241,0.15); }
+  50%       { box-shadow: 0 0 60px rgba(99,102,241,0.35), 0 0 100px rgba(99,102,241,0.1); }
+}
+
+/* ── Role cards ─────────────────────────────────── */
+.role-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.1rem 1.25rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.025);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.role-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(99,102,241,0.06), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.role-card:hover::before { opacity: 1; }
+.role-card:hover {
+  border-color: rgba(99,102,241,0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35), 0 0 30px rgba(99,102,241,0.08);
+}
+.role-card:active { transform: translateY(-1px); }
+
+.role-card-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; flex-shrink: 0;
+}
+.role-card-body { flex: 1; }
+.role-card-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.95rem; font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: var(--text-primary);
+}
+.role-card-desc {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.role-card-arrow {
+  color: var(--text-muted);
+  font-size: 1.3rem; font-weight: 300;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.role-card:hover .role-card-arrow {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+/* ── Premium Role Cards ───────────────────────── */
+.premium-role-card {
+  padding: 1.75rem 2rem !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-radius: 28px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  overflow: visible !important;
+}
+
+.role-card-glow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  filter: blur(40px);
+  opacity: 0;
+  transform: translateY(-50%) translateX(-20px);
+  transition: opacity 0.5s, transform 0.5s;
+  pointer-events: none;
+}
+.role-card:hover .role-card-glow { opacity: 0.3; transform: translateY(-50%) translateX(10px); }
+
+.role-card-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.role-card:hover .role-card-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.role-card-arrow-v2 {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+}
+.arrow-line {
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+  position: absolute;
+  right: 4px;
+}
+.arrow-head {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--text-muted);
+  border-right: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: all 0.3s;
+  position: absolute;
+  right: 0;
+}
+.role-card:hover .arrow-line { width: 16px; }
+.role-card:hover .arrow-head { border-color: var(--accent); }
+.role-card:hover .role-card-arrow-v2 { transform: translateX(5px); }
+
+/* ── Live Indicator ────────────────────────────── */
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 999px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.live-dot {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse-green 2s infinite;
+  box-shadow: 0 0 10px #10b981;
+}
+.live-text {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #10b981;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* ── Stats strip ────────────────────────────────── */
+.stats-strip {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.02);
+}
+.stats-strip-item {
+  padding: 0.85rem 0.5rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.04);
+}
+.stats-strip-item:last-child { border-right: none; }
+.stats-strip-val {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.05rem; font-weight: 900;
+}
+.stats-strip-lbl {
+  font-size: 0.58rem; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  margin-top: 2px; font-weight: 700;
+}
+
+/* ── Connection banner ──────────────────────────── */
+.conn-banner {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+  color: #fff; text-align: center;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em;
+}
+
+/* ── Delay animation helpers ────────────────────── */
+.delay-1 { animation-delay: 0.1s !important; }
+.delay-2 { animation-delay: 0.2s !important; }
+.delay-3 { animation-delay: 0.35s !important; }
+.delay-4 { animation-delay: 0.5s !important; }
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+.animate-slide-down {
+  animation: slideDown 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease both;
+}
+
+@keyframes slideUp   { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn    { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── Auth Landing & UI ───────────────────────────── */
+.auth-landing {
+  background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(2, 6, 23, 1) 100%);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 3rem;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: white;
+  padding: 1.1rem 2.8rem;
+  border-radius: 16px;
+  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.premium-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.6);
+  filter: brightness(1.1);
+}
+
+.premium-btn:active {
+  transform: translateY(0) scale(0.98);
+}
